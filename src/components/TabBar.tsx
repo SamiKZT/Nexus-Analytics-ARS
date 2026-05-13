@@ -52,7 +52,7 @@ export function TabBar() {
 
   return (
     <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-5">
-      <Card className="flex-row items-center gap-1 px-3 py-2 rounded-full">
+      <Card className="flex-row items-center gap-1 px-3 py-2 rounded-full bg-surface-tertiary/60 backdrop-blur-sm">
         {TAB_CONFIG.map(({ id, href, label, icon: Icon }) => (
           <Button
             key={id}

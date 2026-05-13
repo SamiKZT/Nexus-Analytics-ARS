@@ -14,7 +14,7 @@ export function Toolbar({
 
   return (
     <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-5">
-      <Card className="flex-row items-center justify-between w-full max-w-2xl px-4 py-2 rounded-full">
+      <Card className="flex-row items-center justify-between w-full max-w-2xl px-4 py-2 rounded-full bg-surface-tertiary/60 backdrop-blur-sm">
         <h1 className="text-[17px] font-semibold text-[--color-label] truncate">
           {title}
         </h1>
