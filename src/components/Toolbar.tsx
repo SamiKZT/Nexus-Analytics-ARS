@@ -6,14 +6,10 @@ import { Plus } from "lucide-react";
 
 interface ToolbarProps {
   title: string;
-  onAddExpense: () => void;
-  onSettings?: () => void;
 }
 
 export function Toolbar({
   title,
-  onAddExpense,
-  onSettings,
 }: ToolbarProps) {
 
   return (
@@ -27,14 +23,12 @@ export function Toolbar({
             isIconOnly
             variant="ghost"
             size="sm"
-            onPress={onAddExpense}
+            onPress={() => { }}
             className="text-primary"
           >
             <Plus size={20} />
           </Button>
-          {onSettings && (
-            <ThemeSwitch />
-          )}
+          <ThemeSwitch />
         </div>
       </Card>
     </div>
