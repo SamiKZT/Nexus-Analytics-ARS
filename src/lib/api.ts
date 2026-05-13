@@ -76,16 +76,21 @@ export interface PlayerChampionMastery {
   champion?: Champion | null;
 }
 
+export type PlayerRole = 'Top' | 'Jungle' | 'Mid' | 'ADC' | 'Support';
+
 export interface PlayerMatchStat {
   id?: string;
   player_id: string;
   match_id: string;
   champion_id?: string | null;
+  role_played?: PlayerRole | null;
   kills?: number | null;
   deaths?: number | null;
   assists?: number | null;
+  cs?: number | null;
   gold_earned?: number | null;
   damage_dealt?: number | null;
+  is_mvp?: boolean | null;
   player?: Pick<Player, 'pseudonym'> | null;
   champion?: Pick<Champion, 'name'> | null;
   match?: Match | null;

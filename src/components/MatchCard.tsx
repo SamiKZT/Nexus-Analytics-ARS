@@ -46,7 +46,7 @@ const avatars = [
   },
 ];
 
-export function MatchCard({ match }: MatchCardProps) {
+export function MatchCard({ match, hideCTA, className }: MatchCardProps & { hideCTA?: boolean; className?: string }) {
   const scheduledDate = new Date(match.scheduled_at);
   const isScheduled = match.status === 'scheduled';
   const isLive = match.status === 'in_progress';
@@ -67,7 +67,8 @@ export function MatchCard({ match }: MatchCardProps) {
     <Card className={cn(
       "w-full",
       "rounded-lg border-2 border-t-3 border-muted/30 border-t-accent",
-      "bg-linear-to-b from-surface-secondary to-background"
+      "bg-linear-to-b from-surface-secondary to-background",
+      className
     )}>
       <Card.Content className="flex flex-col gap-3 pb-4">
         <div className="flex justify-between items-center">
@@ -77,8 +78,8 @@ export function MatchCard({ match }: MatchCardProps) {
             {isCompleted && "Terminé"}
           </Text.Heading>
           <Chip className={`text-xs px-2 py-1 ${isLive ? 'bg-red-500/20 text-red-500 border border-red-500/40' :
-              isCompleted ? 'bg-green-500/20 text-green-500 border border-green-500/40' :
-                'bg-blue-500/20 text-blue-500 border border-blue-500/40'
+            isCompleted ? 'bg-green-500/20 text-green-500 border border-green-500/40' :
+              'bg-blue-500/20 text-blue-500 border border-blue-500/40'
             }`}>
             {match.status}
           </Chip>
@@ -134,12 +135,15 @@ export function MatchCard({ match }: MatchCardProps) {
         </div>
       </Card.Content>
 
-      <Card.Footer className="justify-center items-center pt-5 border-t border-t-muted/20">
-        <Button variant="tertiary">
-          <PlayCircle />
-          VOD
-        </Button>
-      </Card.Footer>
+      {!hideCTA && (
+        <Card.Footer className="justify-center items-center pt-5 border-t border-t-muted/20">
+
+          <Button variant="tertiary">
+            <PlayCircle />
+            VOD
+          </Button>
+        </Card.Footer>
+      )}
     </Card>
   );
 }
